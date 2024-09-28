@@ -4,7 +4,7 @@ What percentage of the lecture videos have you watched so far?
 ans: 50%
 
 What time, location and duration have you scheduled to watch lecture videos?
-
+ 
 ans: During the periods between the Lecture and class on monday, , anytime between 10am - 3pm, location would be at home.
 
 What are you doing well in the subject so far that you will keep doing?
