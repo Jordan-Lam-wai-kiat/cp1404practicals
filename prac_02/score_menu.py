@@ -8,9 +8,15 @@ def main(score):
     print("(S)how stars")
     print("(Q)uit")
     user_input = input("Please choose an option: ").upper()
-    if user_input == "G":
-        score = get_score()
-    showing_output(user_input, score)
+    while user_input != "Q":
+        if user_input == "G":
+            score = get_score()
+        showing_output(user_input, score)
+        break
+    if user_input == "Q":
+        print("Farewell User, Goodbye.")
+
+
 
 def get_score():
     """gets a random score and stores it as new score"""
@@ -31,19 +37,16 @@ def showing_output(user_input, score):
     """Decides which course of action to take based on user input and loops menu unless 'Q' is enetered"""
     if user_input == "G":
         score = get_score()
-        return print(score), main(score), score
+        return print(score), main(score), score, user_input == ""
     elif user_input == "P":
         result = calculate_score(score)
-        return print("Your score is", score, "Your grade is: ", result,"!"), main(score)
+        return print("Your score is", score, "Your grade is: ", result,"!"), main(score), user_input == ""
     elif user_input == "S":
         stars = get_stars(score)
-        return print(stars), main(score)
-    elif user_input == "Q":
-        print("Thank you, Goodbye.")
-
+        return print(stars), main(score), user_input == ""
     else:
         re_enter_choice = input("Please enter a valid option (G, P, S, Q): ").upper()
-        return showing_output(re_enter_choice, score)
+        return showing_output(re_enter_choice, score), user_input == ""
 
 if __name__ == "__main__":
     score = input_score()
