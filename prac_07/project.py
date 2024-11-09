@@ -10,7 +10,7 @@ class Projects:
         self.completion_percentage = completion_percentage
 
     def __str__(self):
-        return f"  {self.name}, start: {self.start_date}, priority: {self.priority}, estimate: {self.cost_estimate}, completion: {self.completion_percentage}%"
+        return f"  {self.name}, start: {self.start_date}, priority: {self.priority}, estimate: ${float(self.cost_estimate):.2f}, completion: {self.completion_percentage}%"
 
     def main(self, projects_list="", new_load=True):
         if new_load == True:
@@ -52,7 +52,7 @@ class Projects:
                 print(project)
                 line = Projects(project[0], project[1], project[2], project[3], project[4])
                 print(project)
-                line.start_date = datetime.strptime(project[1], "%d/%m/%Y").date()
+                line.start_date = datetime.strptime(project[1], "%Y-%m-%d").date()
                 projects.append(line)
             return projects
 
@@ -68,7 +68,7 @@ class Projects:
         with open(FILENAME, 'w') as out_file:
             out_file.write(f"Name	Start Date	Priority	Cost Estimate	Completion Percentage")
             for line in projects:
-                out_file.write(f"\n{line.name}  {line.start_date}   {line.priority} {line.cost_estimate}    {line.completion_percentage}")
+                out_file.write(f"\n{line.name}\t{line.start_date}\t{line.priority}\t{line.cost_estimate}\t{line.completion_percentage}")
         if mid_save == True:
          return Projects.main(self, projects, False)
 
