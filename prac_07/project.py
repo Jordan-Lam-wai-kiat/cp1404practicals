@@ -1,8 +1,9 @@
 from datetime import datetime
-
+"""estimated time taken to complete project.py - 3hrs 46mins"""
 class Projects:
 
     def __init__(self, name="", start_date="", priority="", cost_estimate="", completion_percentage=""):
+        """parameters of Projects object"""
         self.name = name
         self.start_date = start_date
         self.priority = priority
@@ -10,9 +11,11 @@ class Projects:
         self.completion_percentage = completion_percentage
 
     def __str__(self):
+        """String formatting"""
         return f"  {self.name}, start: {self.start_date}, priority: {self.priority}, estimate: ${float(self.cost_estimate):.2f}, completion: {self.completion_percentage}%"
 
     def main(self, projects_list="", new_load=True):
+        """Prints menu and parses new list of projects"""
         if new_load == True:
             projects_list = Projects.load_file(self)
         print("- (L)oad projects ")
@@ -26,6 +29,7 @@ class Projects:
         Projects.option_selector(self, user_option, projects_list)
 
     def option_selector(self, user_option, projects):
+        """calls the function based on user input"""
         if user_option == "L":
             Projects.load_projects(self, projects)
         elif user_option == "S":
@@ -42,6 +46,7 @@ class Projects:
             Projects.quit(self, projects)
 
     def load_file(self):
+        """load and read data from project.txt and puts it into a list"""
         FILENAME = "projects.txt"
         with open(FILENAME, 'r') as in_file:
             projects = []
@@ -57,6 +62,7 @@ class Projects:
             return projects
 
     def load_projects(self, projects):
+        """list out data stored in file"""
         count = 0
         for line in projects:
             print(f'{count}. ', line)
@@ -64,6 +70,7 @@ class Projects:
         return Projects.main(self, projects, False)
 
     def save_projects(self, projects, mid_save=True):
+        """Saves data to 'projects.txt'"""
         FILENAME = "projects.txt"
         with open(FILENAME, 'w') as out_file:
             out_file.write(f"Name	Start Date	Priority	Cost Estimate	Completion Percentage")
@@ -73,6 +80,7 @@ class Projects:
          return Projects.main(self, projects, False)
 
     def display_objects(self, projects):
+        """display objects based on completion rate of 100% and non 100%"""
         print("Incomplete projects:")
         for line in projects:
             if line.completion_percentage != "100":
@@ -84,6 +92,7 @@ class Projects:
         return Projects.main(self, projects, False)
 
     def filter_projects(self, projects):
+        """filter out projects and displays projects which have dates which are above the specified date"""
         project_date = input("Show projects that start after date (dd/mm/yy): ")
         formatted_project_date = datetime.strptime(project_date, "%d/%m/%Y").date()
         for line in projects:
@@ -92,6 +101,7 @@ class Projects:
         return Projects.main(self, projects, False)
 
     def add_new_project(self, projects):
+        """add new project object"""
         new_project = Projects()
         new_project.name = input("Name: ")
         new_project.start_date = input("Start date (dd/mm/yy): ")
@@ -104,7 +114,7 @@ class Projects:
         return Projects.main(self, projects, False)
 
     def update_project(self, projects):
-
+        """updates priority and completion rate of existing objects"""
         count = 0
         numbered_project_list = []
         for line in projects:
@@ -128,6 +138,7 @@ class Projects:
         return Projects.main(self, projects, False)
 
     def quit(self, projects):
+        """quits program and allow user to choose to save new data into 'project.txt' or not"""
         user_quit = input("Would you like to save to projects.txt? ")
         if "no" in user_quit:
             print("Thank you for using custom-built project management software.")

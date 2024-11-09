@@ -24,6 +24,7 @@ class ProgrammingLanguage:
         return self.typing == "Dynamic"
 
     def is_arithmetic(self):
+        """check if programming language supports arithmetic functionality"""
         if self.pointer_arithmetic == True:
             statement = f"{self.name} supports Pointer Arithmetic"
         else:

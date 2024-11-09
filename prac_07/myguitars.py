@@ -1,6 +1,7 @@
 from guitar import Guitar
 
 def main():
+    """sorts and orders guitar details by ascending order with reference to cost """
     list_of_guitars = read_file()
     list_of_guitars.sort()
     list_of_guitars_to_save = []
@@ -27,6 +28,7 @@ def main():
 
 
 def read_file():
+    """reads guitar.csv and displays the data into a readable format"""
     with open("guitars.csv", "r") as in_file:
         list_of_guitars = []
         for line in in_file:
