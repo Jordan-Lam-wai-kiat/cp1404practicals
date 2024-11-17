@@ -14,6 +14,7 @@ class MilesToKilometers(App):
         return self.root
 
     def convert_to_kilometers(self, value):
+        """convert miles to kilometers"""
         try:
             result = int(value) * 1.60934
             self.output = str(result)
@@ -21,6 +22,7 @@ class MilesToKilometers(App):
             self.output = str(0.0)
 
     def increase_number(self, value):
+        """increase input number"""
         try:
             result = int(value) + 1
             self.root.ids.input_text.text = str(result)
@@ -30,6 +32,7 @@ class MilesToKilometers(App):
 
 
     def decrease_number(self, value):
+        """decreases input number"""
         try:
             result = int(value) - 1
             self.root.ids.input_text.text = str(result)

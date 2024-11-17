@@ -20,7 +20,7 @@ class DynamicLabels(App):
         return self.root
 
     def create_widgets(self):
-        """Create buttons from data and add them to the GUI."""
+        """Create Labels from data and add them to the GUI."""
         for name in self.name_to_phone:
             # create a button for each data entry, specifying the text
             temp_button = Label(text=name)
@@ -40,7 +40,7 @@ class DynamicLabels(App):
         self.status_text = f"{name}'s number is {self.name_to_phone[name]}"
 
     def clear_all(self):
-        """Clear all widgets that are children of the "entries_box" layout widget."""
+        """Clear all widgets that are children of the "main" layout widget."""
         self.root.ids.main.clear_widgets()
 
 DynamicLabels().run()
