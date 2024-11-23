@@ -6,6 +6,7 @@ from prac_09.car import Car
 
 
 class Taxi(Car):
+    """Taxi class"""
     price_per_km = 1.23
     """Specialised version of a Car that includes fare costs."""
     def __init__(self, name, fuel):

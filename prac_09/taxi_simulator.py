@@ -5,6 +5,7 @@ from taxi import Taxi
 taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
 print("Let's drive!")
 def main(total_bill=0, current_taxi = None):
+    """loads menu and prints total bill"""
     valid_option = False
     while valid_option == False:
         print("q)uit, c)hoose taxi, d)rive")
@@ -26,6 +27,7 @@ def main(total_bill=0, current_taxi = None):
             print(choice)
 
 def choose_taxi(total_bill):
+    """allows user to choose from a list of taxis and outputs total bill"""
     print("Taxis available:")
     count = 0
     for taxi in taxis:
@@ -43,6 +45,7 @@ def choose_taxi(total_bill):
 
 
 def drive(total_bill, current_taxi):
+    """asks user or how far they want to drive, outputs fare for chosen taxi and driven distance and adds fare to total bill and prints total bill"""
     distance_driven = int(input("Dive how far? "))
     current_taxi.drive(distance_driven)
     print(f"Your {current_taxi.name} trip will cost you ${current_taxi.get_fare():.2f}")
@@ -51,6 +54,7 @@ def drive(total_bill, current_taxi):
     return main(total_bill, None)
 
 def quit_program(total_bill):
+    """outputs final total billing and the statistics of the taxis"""
     print(f"Total trip cost: ${total_bill}")
     print("Taxis are now:")
     count = 0
