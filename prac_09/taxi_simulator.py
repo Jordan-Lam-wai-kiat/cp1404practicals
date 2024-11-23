@@ -55,7 +55,7 @@ def drive(total_bill, current_taxi):
 
 def quit_program(total_bill):
     """outputs final total billing and the statistics of the taxis"""
-    print(f"Total trip cost: ${total_bill}")
+    print(f"Total trip cost: ${total_bill:.2f}")
     print("Taxis are now:")
     count = 0
     for taxi in taxis:
