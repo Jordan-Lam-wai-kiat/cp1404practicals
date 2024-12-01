@@ -34,7 +34,7 @@ def phrase_to_sentence(phrase):
     'Hello.'
     >>> phrase_to_sentence('welcome to the belair')
     'Welcome to the belair.'
-    >>> phrase_to_sentence('fi FI fo Fum')
+    >>> phrase_to_sentence('fi fi fo Fum')
     'Fi FI fo Fum.'
     """
     sentence = phrase[0].title() + phrase[1:]
